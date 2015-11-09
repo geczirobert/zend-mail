@@ -80,7 +80,7 @@ class Subject implements UnstructuredInterface
     {
         $subject = (string) $subject;
 
-        if (! HeaderWrap::canBeEncoded($subject)) {
+        if (! HeaderWrap::canBeEncoded($subject, 998)) {
             throw new Exception\InvalidArgumentException(
                 'Subject value must be composed of printable US-ASCII or UTF-8 characters.'
             );
