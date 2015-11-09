@@ -112,11 +112,12 @@ abstract class HeaderWrap
      * Test if is possible apply MIME-encoding
      *
      * @param string $value
+     * @param int $lineLength
      * @return bool
      */
-    public static function canBeEncoded($value)
+    public static function canBeEncoded($value, $lineLength = 76)
     {
-        $encoded = iconv_mime_encode('x-test', $value, ['scheme' => 'Q']);
+        $encoded = iconv_mime_encode('x-test', $value, ['scheme' => 'Q', 'line-length' => $lineLength]);
 
         return (false !== $encoded);
     }
